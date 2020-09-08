@@ -1,0 +1,73 @@
+<ecl-app-harmonised (languageChanged)="onLanguageChanged($event)">
+    <ecl-site-header-harmonised
+        group="2"
+        [languageCode]="currentLanguage.code"
+        [languageLabel]="currentLanguage.label"
+        [hasLogin]="true"
+        [isLoggedIn]="true"
+        loggedAs="John Doe">
+
+        <div eclSiteHeaderEnvironment>Environment</div>
+
+        <ecl-site-header-harmonised-banner-top>
+            <a eclLink variant="standalone" href="https://ec.europa.eu/component-library">
+                Europa Component Library
+            </a>
+        </ecl-site-header-harmonised-banner-top>
+
+        <ecl-menu siteName="eUI/ECL integration">
+            <ecl-menu-item label="Home"></ecl-menu-item>
+
+            <ecl-menu-item label="Item 1">
+                <ecl-menu-mega>
+                    <ecl-menu-mega-item label="Item 1.1"></ecl-menu-mega-item>
+                    <ecl-menu-mega-item label="Item 1.2"></ecl-menu-mega-item>
+                    <ecl-menu-mega-item label="Item 1.3" [isCurrent]="true"></ecl-menu-mega-item>
+                </ecl-menu-mega>
+            </ecl-menu-item>
+
+            <ecl-menu-item label="Item 2">
+                <ecl-menu-mega>
+                    <ecl-menu-mega-item label="Item 2.1"></ecl-menu-mega-item>
+                    <ecl-menu-mega-item label="Item 2.2"></ecl-menu-mega-item>
+                    <ecl-menu-mega-item label="Item 2.3"></ecl-menu-mega-item>
+                </ecl-menu-mega>
+            </ecl-menu-item>
+
+            <ecl-menu-item label="Item 3">
+                <ecl-menu-mega>
+                    <ecl-menu-mega-item label="Item 3.1"></ecl-menu-mega-item>
+                    <ecl-menu-mega-item label="Item 3.2"></ecl-menu-mega-item>
+                    <ecl-menu-mega-item label="Item 3.3"></ecl-menu-mega-item>
+                </ecl-menu-mega>
+            </ecl-menu-item>
+        </ecl-menu>
+    </ecl-site-header-harmonised>
+
+    <ecl-language-list [selectedLanguageCode]="currentLanguage.code">
+        <ecl-language-list-item *ngFor="let lang of languages"
+            [languageCode]="lang.code"
+            [languageLabel]="lang.label">
+        </ecl-language-list-item>
+    </ecl-language-list>
+
+    <ecl-page-header-harmonised group="2">
+        <ecl-breadcrumb-harmonised>
+            <ecl-breadcrumb-harmonised-segment>Home</ecl-breadcrumb-harmonised-segment>
+            <ecl-breadcrumb-harmonised-segment>European Commission</ecl-breadcrumb-harmonised-segment>
+            <ecl-breadcrumb-harmonised-segment [isCurrentPage]="true">ECL</ecl-breadcrumb-harmonised-segment>
+        </ecl-breadcrumb-harmonised>
+
+        <div eclPageHeaderHarmonisedMeta>Auto generated template</div>
+        <h1 eclPageHeaderHarmonisedTitle>Hello ECL application</h1>
+        <p eclPageHeaderHarmonisedDescription>Please feel free to customize this template according to your needs</p>
+    </ecl-page-header-harmonised>
+
+    <main id="ecl-main-content" class="ecl-u-pv-xl">
+        <div class="ecl-container">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+
+    <ecl-footer-harmonised group="2"></ecl-footer-harmonised>
+</ecl-app-harmonised>
